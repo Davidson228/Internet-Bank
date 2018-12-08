@@ -1,10 +1,11 @@
 <?php
+require 'vendor/autoload.php';
+require 'connection.php';
 
 $app = new \atk4\ui\App('Internet Bank');
 $app->initLayout('Centered');
 
 $clients = new Clients($db);
-$guests = $clients->ref('Guests');
 $form2 = $app->layout->add('Form');
 $form2->setModel(new Clients($db),['login','password']);
 $form2->buttonSave->set('Login');

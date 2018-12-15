@@ -24,7 +24,7 @@ $grid->setModel(new Clients($db));
 $grid->addQuickSearch(['balance','account_number','clients_id']);
 
 $buuton = $app->add('Button');
-$button->set(function($button){
+$button->on('click',function($button){
   $a = 'LV42wert';
   for ($a = 1; $a = 13; $a++) {
      $a = $a.rand(0,9);
@@ -32,4 +32,5 @@ $button->set(function($button){
   $b_account = new Account($db);
   $b_account->client_id = $_SESSION['user_id'];
   $b_account->account_number = $a;
+  $b_account->balance = 0
 });

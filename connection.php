@@ -11,7 +11,7 @@ class Clients extends \atk4\data\Model {
  function init() {
    parent::init();
    $this->addField('name');
-   $this->addField('personal code');
+   $this->addField('personal_code');
    $this->addField('phone');
    $this->addField('login');
    $this->addField('password');

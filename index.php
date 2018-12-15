@@ -1,22 +1,33 @@
 <?php
-require 'vendor/autoload.php';
+
 require 'connection.php';
 
 $app = new \atk4\ui\App('Internet Bank');
 $app->initLayout('Centered');
 
 $clients = new Clients($db);
-$form2 = $app->layout->add('Form');
-$form2->setModel(new Clients($db),['login','password']);
-$form2->buttonSave->set('Login');
-$form2->onSubmit(function($form2) use ($clients) {
-  $clients->tryLoadBy('login',$form2->model['login']);
-  if($clients['password'] == $form2->model['password']) {
-    $_SESSION['user_id'] = $clients->id;
-    return new \atk4\ui\jsExpression('document.location="main.php"');
-  } else {
+$form = $app->layout->add('Form');
+$form->setModel( new Clients($db),['login','password']);
+$form->buttonSave->set('Login');
+$form->onSubmit(function($form) use ($clients) {
+  $clients->tryLoadBy('login', $form->model['login']);
+  if ($clients['password'] == $form->model['password']) {
+    if ($clients['login'] == 'admin'){
+      if ($clients['password'] == 'admin') {
+        return new \atk4\ui\jsExpression('document.location = "admin.php" ');
+      }
+    }else{
+      $_SESSION['clients_id'] = $clients->id;
+      return new \atk4\ui\jsExpression('document.location = "bank_account.php" ');
+    }
+  }else{
     $clients->unload();
-    $er = (new \atk4\ui\jsNotify('No such user.'));
-    $er->setColor('red');
+    $error = (new \atk4\ui\jsNotify('Alibiderchi'));
+    $error->setColor('red');
+    return $error;
   }
 });
+
+$button1 = $app->add('Button');
+$button1->set('Registration');
+$button1->link('registration.php');

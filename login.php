@@ -13,7 +13,7 @@ $form->onSubmit(function($form) use ($clients) {
   $clients->tryLoadBy('name', $form->model['name']);
   if ($clients['password'] == $form->model['password']) {
     if ($clients['name'] == 'admin'){
-      if ($clients['passord'] == 'admin') {
+      if ($clients['password'] == 'admin') {
         return new \atk4\ui\jsExpression('document.location = "admin.php" ');
       }
     }else{

@@ -4,26 +4,16 @@ require 'connection.php';
 $app = new \atk4\ui\App('Internet Bank');
 $app->initLayout('Centered');
 
-class Bank_account extends \atk4\data\Model {
- public $table = 'clients';
- function init() {
-   parent::init();
-   $this->addField('balance');
-   $this->addField('account_number');
-   $this->addField('clients_id');
- }
-}
-
 $client = new Clients($db);
 $client -> load($_SESSION['clients_id']);
 
-$account = $client->ref('Account');
+$account = $client->ref('Bank_account');
 
 $grid = $app->layout->add('Grid');
 $grid->setModel(new Clients($db));
 $grid->addQuickSearch(['balance','account_number','clients_id']);
 
-$buuton = $app->add('Button');
+$button = $app->add('Button');
 $button->on('click',function($button){
   $a = 'LV42wert';
   for ($a = 1; $a = 13; $a++) {

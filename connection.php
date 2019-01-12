@@ -15,5 +15,18 @@ class Clients extends \atk4\data\Model {
    $this->addField('phone');
    $this->addField('login');
    $this->addField('password');
+   $this->hasMany('Bank_account',new Bank_account);
+ }
+}
+
+class Bank_account extends \atk4\data\Model {
+ public $table = 'clients';
+ function init() {
+   parent::init();
+   $this->addField('balance');
+   $this->addField('account_number');
+   $this->addField('clients_id');
+   $this->hasOne('clients_id',new Clients)->addTitle();
+
  }
 }

@@ -20,12 +20,11 @@ class Clients extends \atk4\data\Model {
 }
 
 class Bank_account extends \atk4\data\Model {
- public $table = 'clients';
+ public $table = 'bank_account';
  function init() {
    parent::init();
    $this->addField('balance');
    $this->addField('account_number');
-   $this->addField('clients_id');
    $this->hasOne('clients_id',new Clients)->addTitle();
 
  }

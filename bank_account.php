@@ -10,18 +10,13 @@ $client -> load($_SESSION['clients_id']);
 $account = $client->ref('Bank_account');
 
 $grid = $app->layout->add('Grid');
-$grid->setModel(new Clients($db));
-$grid->addQuickSearch(['balance','account_number','clients_id']);
+$grid->setModel($account);
+$grid->addQuickSearch(['balance','account_number']);
 
-$button = $app->add('Button');
-$button->on('click',function($button){
-  $a = 'LV42wert';
-  for ($a = 1; $a = 13; $a++) {
-     $a = $a.rand(0,9);
-  }
-  $b_account = new Account($db);
-  $b_account->client_id = $_SESSION['clients_id'];
-  $b_account->account_number = $a;
-  $b_account->balance = 0;
-}
-);
+$button1 = $app->add('Button');
+$button1->set('Add new account');
+$button1->link('new_account.php');
+
+$button2 = $app->add('Button');
+$button2->set('Exit');
+$button2->link('index.php');

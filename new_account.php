@@ -2,7 +2,7 @@
 require 'connection.php';
 
 $a = 'LV42wert';
-for ($a = 1; $a = 13; $a++) {
+for ($i = 1; $i = 13; $i++) {
    $a = $a.rand(0,9);
 }
 $b_account = new Bank_account($db);

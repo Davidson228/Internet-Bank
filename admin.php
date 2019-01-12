@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 require 'connection.php';
 if((isset($_SESSION['hash'])) && ($_SESSION['hash'] == 'qwerty')) {
 
-  $app = new \atk4\ui\App('Credits');
+  $app = new \atk4\ui\App('Internet Bank');
   $app->initLayout('Centered');
 
 

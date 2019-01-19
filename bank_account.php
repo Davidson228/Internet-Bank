@@ -20,3 +20,6 @@ $button1->link('new_account.php');
 $button2 = $app->add('Button');
 $button2->set('Exit');
 $button2->link('index.php');
+
+$button3 = $app->add(['Button', 'Send/Receive money']);
+$button3->link('sender.php');

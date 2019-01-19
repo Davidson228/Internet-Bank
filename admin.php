@@ -1,6 +1,4 @@
 <?php
-session_start();
-require 'vendor/autoload.php';
 require 'connection.php';
 if((isset($_SESSION['hash'])) && ($_SESSION['hash'] == 'qwerty')) {
 
@@ -15,7 +13,7 @@ if((isset($_SESSION['hash'])) && ($_SESSION['hash'] == 'qwerty')) {
 
   $button1 = $app->add('Button');
   $button1->set('Logout');
-  $button1->link('logout.php');
+  $button1->link('index.php');
 
 
 

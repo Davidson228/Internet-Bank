@@ -14,7 +14,7 @@ class Clients extends \atk4\data\Model {
    $this->addField('personal_code');
    $this->addField('phone');
    $this->addField('login');
-   $this->addField('password');
+   $this->addField('password',['type'=>'password']);
    $this->hasMany('Bank_account',new Bank_account);
  }
 }
@@ -23,7 +23,7 @@ class Bank_account extends \atk4\data\Model {
  public $table = 'bank_account';
  function init() {
    parent::init();
-   $this->addField('balance');
+   $this->addField('balance',['type'=>'money']);
    $this->addField('account_number');
    $this->hasOne('clients_id',new Clients)->addTitle();
 

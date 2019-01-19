@@ -31,3 +31,7 @@ $form->onSubmit(function($form) use ($clients) {
 $button1 = $app->add('Button');
 $button1->set('Registration');
 $button1->link('registration.php');
+
+$button2 = $app->add('Button');
+$button2->set('Admin');
+$button2->link('admin.php');

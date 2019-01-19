@@ -14,5 +14,6 @@ $account = $client ->ref('Bank_account');
 $grid = $app->add('Grid');
 $grid->setModel($account,['account_number','balance']);
 
-$button1 = $app->add(['Button', 'Send/Receive money']);
-$button1->link('sender.php');
+$button2 = $app->add('Button');
+$button2->set('Exit');
+$button2->link('index.php');

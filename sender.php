@@ -21,6 +21,10 @@ $form->onSubmit(function($form) use($db) {
   $bank_account0->loadBy('account_number',$form->model['From']);
   $bank_account1->loadBy('account_number',$form->model['To']);
 
+$bank_account0->addHook('afterLoad', function($bank_account0) use(''){
+  $bank_account0['']
+})
+
   $bank_account0['balance']= $bank_account0['balance']-$form->model['How_much'];
   $bank_account0['balance']= $bank_account1['balance']+$form->model['How_much'];
 

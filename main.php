@@ -17,3 +17,7 @@ $grid->setModel($account,['account_number','balance']);
 $button2 = $app->add('Button');
 $button2->set('Exit');
 $button2->link('index.php');
+
+$button3 = $app->add('Button');
+$button3->set('Logout');
+$button3->link('bank_account.php');

@@ -31,9 +31,10 @@ $form->onSubmit(function($form) use($db) {
     if($bank_account0['balance'] < $form->model['How_much']) {
       $bank_account0['balance']=$bba0;
       $bank_account1['balance']=$bba1;
-      $error = (new \atk4\ui\jsNotify('Not enough money...'));
-      $error->setColour('red');
 
+      $error = (new \atk4\ui\jsNotify('Not enough money...'));
+      $error->setColor('red');
+      return $error;
     }
   });
 
@@ -47,3 +48,7 @@ $form->onSubmit(function($form) use($db) {
 $button2 = $app->add('Button');
 $button2->set('Exit');
 $button2->link('index.php');
+
+$button3 = $app->add('Button');
+$button3->set('Logout');
+$button3->link('bank_account.php');

@@ -21,12 +21,21 @@ $form->onSubmit(function($form) use($db) {
   $bank_account0->loadBy('account_number',$form->model['From']);
   $bank_account1->loadBy('account_number',$form->model['To']);
 
-$bank_account0->addHook('afterLoad', function($bank_account0) use(''){
-  $bank_account0['']
-})
+  $bba0=$bank_account0['balance'];
+  $bba1=$bank_account1['balance'];
 
   $bank_account0['balance']= $bank_account0['balance']-$form->model['How_much'];
-  $bank_account0['balance']= $bank_account1['balance']+$form->model['How_much'];
+  $bank_account1['balance']= $bank_account1['balance']+$form->model['How_much'];
+
+  $bank_account0->addHook('beforeSave', function($bank_account0) use($bank_account1, $bba0, $bba1, $form){
+    if($bank_account0['balance'] < $form->model['How_much']) {
+      $bank_account0['balance']=$bba0;
+      $bank_account1['balance']=$bba1;
+      $error = (new \atk4\ui\jsNotify('Not enough money...'));
+      $error->setColour('red');
+
+    }
+  });
 
   $bank_account0->save();
   $bank_account1->save();

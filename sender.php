@@ -40,7 +40,7 @@ $form->onSubmit(function($form) use($db) {
 
   $bank_account0->save();
   $bank_account1->save();
-
+  //sleep(1000);
   return new \atk4\ui\jsExpression('document.location = "main.php"');
 
 });

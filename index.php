@@ -1,7 +1,9 @@
 <?php
 
 require 'connection.php';
-
+unset($_SESSION['timer']);
+unset($_SESSION['flag']);
+unset($_SESSION['t']);
 $app = new \atk4\ui\App('Internet Bank');
 $app->initLayout('Centered');
 

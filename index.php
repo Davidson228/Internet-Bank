@@ -3,7 +3,7 @@
 require 'connection.php';
 unset($_SESSION['timer']);
 unset($_SESSION['flag']);
-unset($_SESSION['t']);
+unset($_SESSION['timer']);
 $app = new \atk4\ui\App('Internet Bank');
 $app->initLayout('Centered');
 
@@ -37,7 +37,3 @@ $button1->link('registration.php');
 $button2 = $app->add('Button');
 $button2->set('Admin');
 $button2->link('admin.php');
-
-$button7 = $app->add('Button');
-$button7->set('MINIGAME');
-$button7->link('minigame.php');

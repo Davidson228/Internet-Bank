@@ -7,23 +7,29 @@ $app->initLayout('Centered');
 
 if(!isset($_SESSION['flag'])){
   $_SESSION['timer'] = time();
+  $_SESSION['i'] = 0;
+  $_SESSION['t']=0;
 }
 
 $now = time();
 
 $_SESSION['t'] = $now - $_SESSION['timer'];
 
-if ($_SESSION['t']<=10) || ($_SESSION['i']==5){
-
-  $_SESSION['t']=0;
-}
 
 $button = $app->add(['Button','Click','big pink']);
 $button->on('click', function($action){
   $_SESSION['flag']=true;
   $_SESSION['i']=$_SESSION['i']+1;
-  return $action->text($_SESSION['i']);
-});
+  if ($_SESSION['t'] > 5 ) {
+    return new \atk4\ui\jsExpression('document.location = "ban.php" ');
+  }
 
-$vp = $layout->add('VirtualPage');
-$vp->add('Molodec');
+  if ($_SESSION['i'] < 35) {
+    return $action->text($_SESSION['i']);
+  }
+
+  if (($_SESSION['t']<=35) AND ($_SESSION['i'] >= 1)){
+    $_SESSION['win']=true;
+    return new \atk4\ui\jsExpression('document.location = "win.php" ');
+  }
+});

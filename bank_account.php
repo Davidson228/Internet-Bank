@@ -23,3 +23,7 @@ $button2->link('index.php');
 
 $button3 = $app->add(['Button', 'Send/Receive money']);
 $button3->link('sender.php');
+
+$button7 = $app->add('Button');
+$button7->set('MINIGAME');
+$button7->link('minigame.php');

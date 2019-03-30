@@ -8,10 +8,26 @@ if (empty($_SESSION['clients_id'])) {
 $app = new \atk4\ui\App('Send/Receive money');
 $app->initLayout('Centered');
 
-$form = $app->layout->add('Form');
+$client = new Clients($db);
+$client -> load($_SESSION['clients_id']);
+
+$sen=$client->ref('Bank_account');
+foreach ($sen as $s) {
+  $a[] = $s['acc_num'];
+}
+
+
+$m=new \atk4\ui\Model();
+$m -> addField('From',['enum'=>$a]);
+$m -> addField('To');
+$m -> addField('How much');
+$form = $app->layout->add(['Form']);
+$form->setModel($m);
+
+/*$form = $app->layout->add('Form');
 $form->addField('From');
 $form->addField('To');
-$form->addField('How_much');
+$form->addField('How_much');*/
 
 $form->onSubmit(function($form) use($db) {
 
@@ -52,19 +68,3 @@ $button2->link('index.php');
 $button3 = $app->add('Button');
 $button3->set('Logout');
 $button3->link('bank_account.php');
-
-$client = new Client($db);
-$client -> load($_SESSION['id']) ;
-
-$sen=$client->ref('Accounts');
-foreach ($sen as $s) {
-  $a[] = $s['acc_num'];
-}
-
-
-$m=new \atk4\ui\Model();
-$m -> addField('Sender',['enum'=>$a]);
-$m -> addField('Receiver');
-$m -> addField('Sum');
-$form = $app->layout->add(['Form']);
-$form->setModel($m);

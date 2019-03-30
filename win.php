@@ -12,11 +12,11 @@ if ($_SESSION['win']){
   $button3->link('bank_account.php');
 
   $m = $app->add('Menu');
-  $sm = $m->AddMenu('Accounts');
+  $sm = $m->AddMenu('Bank_account');
 
   $clients - new Clients($db);
-  $clients -> load($_SESSION['id']);
-  $acc = $clients->ref('Accounts');
+  $clients -> load($_SESSION['clients_id']);
+  $acc = $clients->ref('Bank_account');
   $win = new Accounts($db);
   foreach ($acc as $shot) {
     $sm->addItem($shot['acc_num'])->on('click', function($action) use ($shot) {

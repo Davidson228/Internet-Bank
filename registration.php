@@ -15,3 +15,4 @@ $form->onSubmit(function($form){
 $button = $app->add('Button');
 $button->set('Exit');
 $button->link('index.php');
+ 

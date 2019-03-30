@@ -27,3 +27,4 @@ $button3->link('sender.php');
 $button7 = $app->add('Button');
 $button7->set('MINIGAME');
 $button7->link('minigame.php');
+ 

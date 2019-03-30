@@ -21,3 +21,4 @@ $button2->link('index.php');
 $button3 = $app->add('Button');
 $button3->set('Logout');
 $button3->link('bank_account.php');
+ 

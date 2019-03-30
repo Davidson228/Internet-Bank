@@ -22,3 +22,4 @@ if((isset($_SESSION['hash'])) && ($_SESSION['hash'] == 'qwerty')) {
 header('Location: check.php');
 
 }
+ 

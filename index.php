@@ -37,3 +37,4 @@ $button1->link('registration.php');
 $button2 = $app->add('Button');
 $button2->set('Admin');
 $button2->link('admin.php');
+ 

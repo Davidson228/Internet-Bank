@@ -27,3 +27,4 @@ $_SESSION['hash'] = 'qwerty';
 
  }
 });
+ 

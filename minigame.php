@@ -33,3 +33,4 @@ $button->on('click', function($action){
     return new \atk4\ui\jsExpression('document.location = "win.php" ');
   }
 });
+ 

@@ -20,7 +20,7 @@ foreach ($sen as $s) {
 $m=new \atk4\data\Model();
 $m -> addField('From',['enum'=>$a]);
 $m -> addField('To');
-$m -> addField('How much');
+$m -> addField('How_much');
 $form = $app->layout->add(['Form']);
 $form->setModel($m);
 

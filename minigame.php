@@ -20,7 +20,7 @@ $button = $app->add(['Button','Click','big pink']);
 $button->on('click', function($action){
   $_SESSION['flag']=true;
   $_SESSION['i']=$_SESSION['i']+1;
-  if ($_SESSION['t'] > 5 ) {
+  if ($_SESSION['t'] > 10 ) {
     return new \atk4\ui\jsExpression('document.location = "ban.php" ');
   }
 
@@ -33,4 +33,3 @@ $button->on('click', function($action){
     return new \atk4\ui\jsExpression('document.location = "win.php" ');
   }
 });
- 

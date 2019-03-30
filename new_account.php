@@ -12,4 +12,3 @@ $b_account['balance'] = 0;
 $b_account->save();
 
 header('Location: bank_account.php');
- 

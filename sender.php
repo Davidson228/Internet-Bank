@@ -52,4 +52,19 @@ $button2->link('index.php');
 $button3 = $app->add('Button');
 $button3->set('Logout');
 $button3->link('bank_account.php');
- 
+
+$client = new Client($db);
+$client -> load($_SESSION['id']) ;
+
+$sen=$client->ref('Accounts');
+foreach ($sen as $s) {
+  $a[] = $s['acc_num'];
+}
+
+
+$m=new \atk4\ui\Model();
+$m -> addField('Sender',['enum'=>$a]);
+$m -> addField('Receiver');
+$m -> addField('Sum');
+$form = $app->layout->add(['Form']);
+$form->setModel($m);

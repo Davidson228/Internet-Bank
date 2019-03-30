@@ -19,7 +19,7 @@ if ($_SESSION['win']){
   $acc = $clients->ref('Bank_account');
   $win = new Accounts($db);
   foreach ($acc as $shot) {
-    $sm->addItem($shot['acc_num'])->on('click', function($action) use ($shot) {
+    $sm->addItem($shot['account_number'])->on('click', function($action) use ($shot) {
     $shot['money'] = $shot['money'] + 2;
     $shot -> save();
     return new \atk4\ui\jsExpression('document.location = "main.php" ');

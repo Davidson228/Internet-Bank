@@ -13,7 +13,7 @@ $client -> load($_SESSION['clients_id']);
 
 $sen=$client->ref('Bank_account');
 foreach ($sen as $s) {
-  $a[] = $s['acc_num'];
+  $a[] = $s['account_number'];
 }
 
 

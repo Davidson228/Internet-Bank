@@ -29,4 +29,13 @@ class Bank_account extends \atk4\data\Model {
 
  }
 }
- 
+
+ class Money extends \atk4\data\Model {
+   public $table = 'money';
+   function init() {
+     parent::init();
+     $this->addField('name');
+     $this->addField('coefficient');
+
+ }
+}

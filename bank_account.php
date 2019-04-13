@@ -31,3 +31,7 @@ $button7->link('minigame.php');
 $button9 = $app->add('Button');
 $button9->set('Conventer');
 $button9->link('conventer.php');
+
+$button14 = $app->add('Button');
+$button14->set('Credit');
+$button14->link('credit.php');

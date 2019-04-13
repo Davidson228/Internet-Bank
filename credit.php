@@ -15,19 +15,18 @@ foreach ($sen as $s) {
 
 $m=new \atk4\data\Model();
 $m -> addField('Account_number',['enum'=>$a]);
-$m -> addField('On_what_period');
+$m -> addField('On_what_period, years');
 $m -> addField('How_much');
 
 
 $form = $app->layout->add('Form');
 $form->setModel($m);
-$P = ($form->model['How_much']);
-$n = ($form->model['On_what_period']);
-$i = (0.15);
 
-$result = $form->model['How_much'] (1 + $i * $n);
-
-$form->onSubmit(function($form)'use($i)' {
-  $form->model->save();
+$form->onSubmit(function($form) use($i) {
+  $P = ($form->model['How_much']);
+  $n = ($form->model['On_what_period, years']);
+  $i = (0.15);
+  $result = $form->model['How_much'] * (1 + 0.15 * $form->model['On_what_period, years']);
+  $form->model->Account_number();
   return $form->success('OK');
 });

@@ -4,6 +4,8 @@ require 'connection.php';
 $app = new \atk4\ui\App('Internet Bank');
 $app->initLayout('Centered');
 
+echo @$_SESSION['res'];
+
 $client = new Clients($db);
 $client -> load($_SESSION['clients_id']);
 
@@ -11,7 +13,7 @@ $account = $client->ref('Bank_account');
 
 $grid = $app->layout->add('Grid');
 $grid->setModel($account);
-$grid->addQuickSearch(['balance','account_number']);
+$grid->addQuickSearch(['balance','account_number','credit_balance']);
 
 $button1 = $app->add('Button');
 $button1->set('Add new account');

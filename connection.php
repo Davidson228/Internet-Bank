@@ -24,6 +24,7 @@ class Bank_account extends \atk4\data\Model {
  function init() {
    parent::init();
    $this->addField('balance',['type'=>'money']);
+   $this->addField('credit_balance',['type'=>'money']);
    $this->addField('account_number');
    $this->hasOne('clients_id',new Clients)->addTitle();
 

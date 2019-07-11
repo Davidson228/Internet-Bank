@@ -37,4 +37,7 @@ $button1->link('registration.php');
 $button2 = $app->add('Button');
 $button2->set('Admin');
 $button2->link('admin.php');
- 
+
+$button3 = $app->add('Button');
+$button3->set('Minigame');
+$button3->link('minigame.php');
